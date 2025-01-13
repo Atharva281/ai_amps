@@ -5,7 +5,7 @@ import toml
 import google.generativeai as genai
 
 # Load st.secretsuration from TOML file
-st.secrets = toml.load("st.secrets.toml")
+
 
 # API Credentials from TOML
 BEARER_TOKEN = st.secrets["api_keys"]["token"]
