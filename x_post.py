@@ -4,44 +4,44 @@ from requests_oauthlib import OAuth1
 import toml
 import google.generativeai as genai
 
-# Load configuration from TOML file
-config = toml.load("config.toml")
+# Load st.secretsuration from TOML file
+st.secrets = toml.load("st.secrets.toml")
 
 # API Credentials from TOML
-BEARER_TOKEN = config["api_keys"]["token"]
-GEMINI_API_KEY = config["api_keys"]["GEMINI_API_KEY"]
-CONSUMER_KEY = config["api_keys"]["TWITTER_CONSUMER_KEY"]
-CONSUMER_SECRET = config["api_keys"]["TWITTER_CONSUMER_SECRET"]
+BEARER_TOKEN = st.secrets["api_keys"]["token"]
+GEMINI_API_KEY = st.secrets["api_keys"]["GEMINI_API_KEY"]
+CONSUMER_KEY = st.secrets["api_keys"]["TWITTER_CONSUMER_KEY"]
+CONSUMER_SECRET = st.secrets["api_keys"]["TWITTER_CONSUMER_SECRET"]
 
 # Agent access tokens
 agents = {
     "Agent 1": {
-        "access_token": config["api_keys"]["agent_1_access_token"],
-        "access_secret": config["api_keys"]["agent_1_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_1_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_1_access_token_secret"],
     },
     "Agent 2": {
-        "access_token": config["api_keys"]["agent_2_access_token"],
-        "access_secret": config["api_keys"]["agent_2_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_2_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_2_access_token_secret"],
     },
     "Agent 3": {
-        "access_token": config["api_keys"]["agent_3_access_token"],
-        "access_secret": config["api_keys"]["agent_3_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_3_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_3_access_token_secret"],
     },
     "Agent 4": {
-        "access_token": config["api_keys"]["agent_4_access_token"],
-        "access_secret": config["api_keys"]["agent_4_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_4_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_4_access_token_secret"],
     },
     "Agent 5": {
-        "access_token": config["api_keys"]["agent_5_access_token"],
-        "access_secret": config["api_keys"]["agent_5_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_5_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_5_access_token_secret"],
     },
     "Agent 6": {
-        "access_token": config["api_keys"]["agent_6_access_token"],
-        "access_secret": config["api_keys"]["agent_6_access_token_secret"],
+        "access_token": st.secrets["api_keys"]["agent_6_access_token"],
+        "access_secret": st.secrets["api_keys"]["agent_6_access_token_secret"],
     },
 }
 
-# Configure Gemini API
+# st.secretsure Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
 

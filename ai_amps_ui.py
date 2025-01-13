@@ -8,17 +8,18 @@ import time
 import toml
 # Load environment variables
 load_dotenv()
-config = toml.load("config.toml")
+
 # Constants
-TWITTER_CONSUMER_KEY = config["api_keys"]["TWITTER_CONSUMER_KEY"]
-TWITTER_CONSUMER_SECRET = config["api_keys"]["TWITTER_CONSUMER_SECRET"]
-X_BEARER_TOKEN = config["api_keys"]["token"]
-GEMINI_KEY = config["api_keys"]["GEMINI_API_KEY"]
-PERPLEXITY_BEARER_TOKEN = config["api_keys"]['PERPLEXITY_BEARER_TOKEN']
+TWITTER_CONSUMER_KEY = st.secrets["api_keys"]["TWITTER_CONSUMER_KEY"]
+TWITTER_CONSUMER_SECRET = st.secrets["api_keys"]["TWITTER_CONSUMER_SECRET"]
+X_BEARER_TOKEN = st.secrets["api_keys"]["token"]
+GEMINI_KEY = st.secrets["api_keys"]["GEMINI_API_KEY"]
+PERPLEXITY_BEARER_TOKEN = st.secrets["api_keys"]['PERPLEXITY_BEARER_TOKEN']
 PERPLEXITY_API_URL = "https://api.perplexity.ai/chat/completions"
 
-# Gemini configuration
+# Gemini st.secretsuration
 genai.configure(api_key=GEMINI_KEY)
+
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 
@@ -110,8 +111,8 @@ def post_tweet(agent_number, tweet_text):
     """
     Posts a tweet using Twitter API.
     """
-    access_token = config["api_keys"][f"agent_{agent_number}_access_token"]
-    access_token_secret = config["api_keys"][f"agent_{agent_number}_access_token_secret"]
+    access_token = st.secrets["api_keys"][f"agent_{agent_number}_access_token"]
+    access_token_secret = st.secrets["api_keys"][f"agent_{agent_number}_access_token_secret"]
     auth = OAuth1(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, access_token, access_token_secret)
     url = "https://api.twitter.com/2/tweets"
     payload = {"text": tweet_text}
@@ -126,8 +127,8 @@ def post_tweet(agent_number, tweet_text):
 
 
 def reply_to_tweet(agent_number, tweet_id, reply_text):
-    access_token = config["api_keys"][f"agent_{agent_number}_access_token"]
-    access_token_secret = config["api_keys"][f"agent_{agent_number}_access_token_secret"]
+    access_token = st.secrets["api_keys"][f"agent_{agent_number}_access_token"]
+    access_token_secret = st.secrets["api_keys"][f"agent_{agent_number}_access_token_secret"]
     auth = OAuth1(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, access_token, access_token_secret)
     url = "https://api.twitter.com/2/tweets"
     try:
@@ -147,8 +148,8 @@ def reply_to_tweet(agent_number, tweet_id, reply_text):
 
 
 def retweet_with_comment(agent_number, tweet_id, comment_text):
-    access_token = config["api_keys"][f"agent_{agent_number}_access_token"]
-    access_token_secret = config["api_keys"][f"agent_{agent_number}_access_token_secret"]
+    access_token = st.secrets["api_keys"][f"agent_{agent_number}_access_token"]
+    access_token_secret = st.secrets["api_keys"][f"agent_{agent_number}_access_token_secret"]
     auth = OAuth1(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, access_token, access_token_secret)
     url = "https://api.twitter.com/2/tweets"
     payload = {
