@@ -25,7 +25,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Functions
 def generate_gemini_response(tweet_text):
-    prompt = f"Generate a response for this tweet: '{tweet_text}'only one response"
+    prompt = f"Generate a response for this tweet: '{tweet_text}'only one response strictly , no options"
     try:
         response = model.generate_content(prompt)
         return response.text.strip()
