@@ -15,27 +15,27 @@ CONSUMER_SECRET = st.secrets["api_keys"]["TWITTER_CONSUMER_SECRET"]
 
 # Agent access tokens
 agents = {
-    "Agent 1": {
+    "IsabellaSt_uk": {
         "access_token": st.secrets["api_keys"]["agent_1_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_1_access_token_secret"],
     },
-    "Agent 2": {
+    "phillips_h46043": {
         "access_token": st.secrets["api_keys"]["agent_2_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_2_access_token_secret"],
     },
-    "Agent 3": {
+    "JamesRo4696174": {
         "access_token": st.secrets["api_keys"]["agent_3_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_3_access_token_secret"],
     },
-    "Agent 4": {
+    "ElijahJhon_me": {
         "access_token": st.secrets["api_keys"]["agent_4_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_4_access_token_secret"],
     },
-    "Agent 5": {
+    "evelynlewis_uk": {
         "access_token": st.secrets["api_keys"]["agent_5_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_5_access_token_secret"],
     },
-    "Agent 6": {
+    "NoahLewis14444": {
         "access_token": st.secrets["api_keys"]["agent_6_access_token"],
         "access_secret": st.secrets["api_keys"]["agent_6_access_token_secret"],
     },
